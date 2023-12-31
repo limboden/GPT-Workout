@@ -5,12 +5,11 @@ export default {
       msg: 'Hello World!',
       isMale: false,
       isLBS: true,
-      weightLBS: 0,
-      weightKG: 0,
+      weight: 0,
       height: 0,
       daysAWeek: 0,
-      feet: 0,
-      inches: 0,
+      feet: null,
+      inches: null,
     } 
   }, 
 
@@ -19,10 +18,15 @@ export default {
       this.isMale = !this.isMale
     },
     toggleWeightMeasurement() {
+      if(this.isLBS){
+        this.weight = this.weight / 2.2046
+      } else {
+        this.weight = this.weight * 2.2046
+      }
       this.isLBS = !this.isLBS
     },
     output() {
-
+      //call upon the gpt api to get an output from our saved data
     },
   }
 }
@@ -31,21 +35,21 @@ export default {
 <template>
   <h1>{{ isMale ? 'MALE' : 'FEMALE' }}</h1>
   <button @click="toggleGender">Switch to {{ isMale ? 'FEMALE' : 'MALE' }}</button>
-  <button @click="toggleWeightMeasurement">Switch to {{ isLBS ? 'LBS' : 'KG' }}</button>
-  <h1>Weight in LBS: {{ weightLBS }}lbs</h1>
-  <input type="number" v-model="weightLBS">
-  <h1>Weight in KG: {{ weightLBS }}lbs</h1>
-  <input type="number" v-model="weightLBS"> 
+  <h1>Weight: {{ weight }} {{isLBS ? 'LBS' : 'KG'}}</h1>
+  
+  <input type="number" v-model="weight"> {{isLBS ? 'LBS' : 'KG'}}
+  <button @click="toggleWeightMeasurement">Switch to {{ isLBS ? 'KG' : 'LBS' }}</button>
   <h1>Height: {{ feet }}, {{inches}}</h1>
 
-  <select name="feet" id="feet">
+  <select v-model="feet" name="feet" id="feet">
     <option value="4">4</option>
     <option value="5">5</option>
     <option value="6">6</option>
     <option value="7">7</option>
+    <option value="8">8</option>
   </select>'
 
-  <select name="inches" id="inches">
+  <select v-model="inches" name="inches" id="inches">
     <option value="0">0</option>
     <option value="1">1</option>
     <option value="2">2</option>
@@ -59,5 +63,11 @@ export default {
     <option value="10">10</option>
     <option value="11">11</option>
   </select>"
+
+  <h1>Days a week: {{daysAWeek}}</h1>
+  <input type="number" v-model="daysAWeek"> days
+
+
+
 
 </template>
