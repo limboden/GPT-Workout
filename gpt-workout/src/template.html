@@ -1,0 +1,37 @@
+<h1>{{ isMale ? 'MALE' : 'FEMALE' }}</h1>
+<button @click="toggleGender">Switch to {{ isMale ? 'FEMALE' : 'MALE' }}</button>
+<h1>Weight: {{ weight }} {{isLBS ? 'LBS' : 'KG'}}</h1>
+
+<input type="number" v-model="weight"> {{isLBS ? 'LBS' : 'KG'}}
+<button @click="toggleWeightMeasurement">Switch to {{ isLBS ? 'KG' : 'LBS' }}</button>
+<h1>Height: {{ feet }}, {{inches}}</h1>
+
+<select v-model="feet" name="feet" id="feet">
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+</select>'
+
+<select v-model="inches" name="inches" id="inches">
+  <option value="0">0</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+</select>"
+
+<h1>Days a week: {{daysAWeek}}</h1>
+<input type="number" v-model="daysAWeek"> days
+
+<button @click="submitData()">Submit</button>
+
+<h3>{{userInputToGPT}}</h3>
