@@ -10,7 +10,7 @@ export default {
       feet: null,
       inches: null,
       showUserInputToGPT: false,
-      userInputToGPT: "test",
+      userInputToGPT: "",
 
     } 
   }, 
