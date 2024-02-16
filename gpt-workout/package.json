@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "openai": "^4.24.1",
     "vue": "^3.3.11"
   },
   "devDependencies": {

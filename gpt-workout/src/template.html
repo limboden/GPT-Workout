@@ -2,7 +2,7 @@
 <button @click="toggleGender">Switch to {{ isMale ? 'FEMALE' : 'MALE' }}</button>
 <h1>Weight: {{ weight }} {{isLBS ? 'LBS' : 'KG'}}</h1>
 
-<input type="number" v-model="weight"> {{isLBS ? 'LBS' : 'KG'}}
+<input type="number" min="0" v-model="weight"> {{isLBS ? 'LBS' : 'KG'}}
 <button @click="toggleWeightMeasurement">Switch to {{ isLBS ? 'KG' : 'LBS' }}</button>
 <h1>Height: {{ feet }}, {{inches}}</h1>
 
@@ -30,7 +30,7 @@
 </select>"
 
 <h1>Days a week: {{daysAWeek}}</h1>
-<input type="number" v-model="daysAWeek"> days
+<input type="number" min="1" max="7" v-model="daysAWeek"> days
 
 <button @click="submitData()">Submit</button>
 
